@@ -7,6 +7,20 @@ FlowRouter.route('/', {
     BlazeLayout.render('App_Body', { main: 'Home_Page' });
   },
 });
+// Copied above from name and main
+FlowRouter.route('/add-contact', {
+  name: 'Add_Contact_Page',
+  action() {
+    BlazeLayout.render('App_Body', { main: 'Add_Contact_Page' });
+  },
+});
+
+FlowRouter.route('/edit-contact/:id', {
+  name: 'Edit_Contact_Page',
+  action() {
+    BlazeLayout.render('App_Body', { main: 'Edit_Contact_Page' });
+  },
+});
 
 FlowRouter.route('/list', {
   name: 'List_Stuff_Page',
