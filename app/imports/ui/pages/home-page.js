@@ -1,7 +1,7 @@
 import { Template } from 'meteor/templating';
 import { Contacts } from '../../api/contacts/contacts.js';
 
-Template.List_Stuff_Page.helpers({
+Template.Home_Page.helpers({
 
   /**
    * @returns {*} All of the Contacts documents.
@@ -9,4 +9,10 @@ Template.List_Stuff_Page.helpers({
   contactsList() {
     return Contacts.find();
   },
+});
+
+Template.Home_Page.onCreated(function onCreated() {
+  this.autorun(() => {
+    this.subscribe('Contacts');
+  });
 });
