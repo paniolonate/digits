@@ -44,7 +44,7 @@ Template.Add_Contact_Page.events({
     const address = event.target.address.value;
     const telephone = event.target.telephone.value;
     const email = event.target.email.value;
-
+    // contact to add to the list
     const newContact = { first, last, address, telephone, email };
     // Clear out any old validation errors.
     instance.context.resetValidation();
