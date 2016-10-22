@@ -17,7 +17,6 @@ Template.Edit_Contact_Page.onCreated(function onCreated() {
   this.context = ContactsSchema.namedContext('Edit_Contact_Page');
 });
 
-
 Template.Edit_Contact_Page.helpers({
   contactField(fieldName) {
     const contact = Contacts.findOne(FlowRouter.getParam('_id'));
@@ -73,5 +72,11 @@ Template.Edit_Contact_Page.events({
       instance.messageFlags.set(displayErrorMessages, true);
     }
   },
-});
+  'click .delete'(event, instance) {
+    event.preventDefault(); // Disable the default event behavior
+    Contacts.remove(FlowRouter.getParam('_id')); // Call 'remove w/Contacts collection
+    FlowRouter.go('Home_Page'); // Call FlowRouter.go to take user back to home page
+  },
+})
+;
 
